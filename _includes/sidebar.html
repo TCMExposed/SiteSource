@@ -1,0 +1,24 @@
+{% assign trans = site.data.values[site.lang] %}
+<div class="sidebar well">
+    <header class="sidebar-header" role="banner">
+        <a href="{{ site.baseurl }}/">
+            <img src="{{ site.baseurl }}/assets/images/YiLogo.png" width="150" height="150" style="border-radius:10px" />
+        </a>
+    </header>
+    <div class="text-center" style="font-size:large;">
+        {{ site.description }}
+    </div>
+</div>
+
+<div class="sidebar well">
+    <h1>{{ trans.recent_posts }}</h1>
+    <ul>
+        {% for post in site.posts limit:5 %}
+          <li><a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="sidebar well">
+    {% include links-list.html %}
+</div>

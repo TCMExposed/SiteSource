@@ -1,0 +1,39 @@
+# Jekyll configuration
+
+name: 揭穿中医
+description: 揭穿中医
+
+# url is currently only used only for the RSS feed in feed.xml
+url: https://tcmexposed.github.io/
+
+exclude: ["utils/**/*","Gemfile","Gemfile.lock"]
+include: [".nojekyll","README.md"]
+
+permalink: /:year/:month/:day/:title:output_ext
+
+# baseurl will often be '', but for a project page on gh-pages, it needs to
+# be the project name.
+# *** IMPORTANT: If your local "jekyll serve" throws errors change this to '' or
+#     run it like so: jekyll serve --baseurl=''
+baseurl: ''
+## default date_format
+date_format:
+  title: "%Y-%m-%d"
+  archive: "%Y-%m-%d"
+  categories: "%Y-%m-%d"
+  tag: "%Y-%m-%d"
+# Language
+lang: "cn"
+
+paginate: 10
+
+
+highlighter: rouge
+markdown: kramdown
+plugins: ['jekyll-paginate', 'jekyll-category-pages']
+
+exclude: ['README.md', 'LICENSE', "*.bak"]
+
+
+
+paginate_path: "/page/:num/"

@@ -1,0 +1,54 @@
+---
+layout: default
+---
+{% assign date_format = site.date_format.title %}
+<div class="well">
+{% if page.paginator %}
+
+  <!-- Pagination is active -->
+  {% assign paginator = page.paginator %}
+
+  {% if paginator.previous_page != nil or paginator.next_page != nil %}
+    <!-- Show page number if we have multiple pages -->
+    <h1>分类目录： {{ page.title }}   <span style="font-size:1.4rem;padding-left:1em"> {{ paginator.page }} / {{ paginator.total_pages }} </span></h1>
+  {% else %}
+    <!-- No page number if we only have a single page -->
+    <h1>分类目录： {{ page.title }}</h1>
+  {% endif %}
+
+  <section>
+    <!-- Show post description for the current page -->
+    {% for post in paginator.posts limit:paginator.per_page %}
+      <article>
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        <h5>{{ post.date | date: date_format }}</h5>
+        <p>{{ post.description }}</p>
+      </article>
+    {% endfor %}
+  </section>
+  <!-- Show navigation next/previous page links if applicable -->
+  <nav><p>
+    {% if paginator.previous_page %}<a href="{{ paginator.previous_page_path }}"  class="btn btn-default next" ><span aria-hidden="true">&larr;</span> 上一页</a>{% endif %}
+    {% if paginator.next_page %}<a href="{{ paginator.next_page_path }}" class="btn btn-default prev" >下一页 <span aria-hidden="true">&rarr;</span></a>{% endif %}
+  </p></nav>
+
+{% else %}
+
+  <!-- Pagination is not active -->
+  <h1>分类目录： {{ page.title }}</h1>
+
+  <section>
+    <!-- Show description for all posts in this category -->
+    {% for post in page.posts %}
+      <article>
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        <h5>{{ post.date | date: date_format }}</h5>
+        {{ post.description }}
+        <p>{{ post.description }}</p>
+      </article>
+    {% endfor %}
+  </section>
+
+{% endif %}
+
+</div>

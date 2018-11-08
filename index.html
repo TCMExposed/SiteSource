@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+
+
+<div class="well">
+<h5 style="font-size:1.8em">栏目分类</h5>
+<ul style="padding-left:1em;font-size:1.2em;line-height:200%;">
+  <li><a href="/category/医学科普/"><strong>医学科普</strong>：
+    收集现代药物研发、药物安全、临床实验等方面的科普文章，反衬出中医药行业的愚昧落后</a></li>
+  <li><a href="/category/理论批判/"><strong>理论批判</strong>：
+    从历史、科学史和逻辑学等方面剖析中医理论，揭穿中医阴阳五行等所谓理论跳大神的本质</a></li>
+  <li><a href="/category/中药警示/"><strong>中药警示</strong>：
+    揭露中药虚假宣传夸大疗效、隐瞒安全风险，提醒民众注意部分中药的致癌性、肝肾毒性</a></li>
+  <li><a href="/category/神医怪谈/"><strong>神医怪谈</strong>：
+    点评中医大师那些荒诞搞笑的言论，以便大家看清部分中医不学无术、不讲逻辑的真实面目</a></li>
+  <li><a href="/category/说学逗唱/"><strong>说学逗唱</strong>：
+    严肃文学，中医反串黑以彼之矛攻彼之盾，黑得伸手不见五指，红红火火恍恍惚惚哼哼哈嘿</a></li>
+  <li><a href="/category/封神演医/"><strong>封神演医</strong>：
+    中医封神榜，奇葩中医大师展览馆，上至国医大师教授，下至草根郎中，还有白日飞升网红</a></li>
+</ul>
+</div>
+
+{% assign trans = site.data.values[site.lang] %}
+{% for post in paginator.posts %}
+<div class="well article">
+    <h2>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        <span class="post-date text-nowrap">
+          {% assign date_format = site.date_format.title %}
+          {{ post.date | date: date_format }}
+        </span>
+    </h2>
+
+    <div class="post-description">
+        {{ post.description }}
+    </div>
+
+</div>
+{% endfor %}
+
+<div class="pagination">
+  {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+        <a class="btn btn-default" href="{{ site.baseurl}}/index.html" class="previous">{{ trans.newer_post }}</a>
+      {% else %}
+        <a class="btn btn-default" href="{{ site.baseurl}}/page/{{ paginator.previous_page }}/" class="previous">{{ trans.newer_post }}</a>
+      {% endif %}
+  {% endif %}
+  <span class="page_number ">{{ trans.page }}: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a class="btn btn-default" href="{{ site.baseurl}}/page/{{ paginator.next_page }}/" class="next">{{ trans.older_post }}</a>
+  {% endif %}
+</div>

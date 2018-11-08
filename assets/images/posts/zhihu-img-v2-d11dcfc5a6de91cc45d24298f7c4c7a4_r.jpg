@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>知乎</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//static.zhihu.com/static/css/desktop/errors.css" />
+    <link rel="shortcut icon" href="//static.zhihu.com/static/img/favicon.ico" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="error error-wide">
+        <div class="header">
+          <a href="/" id="page_logo" class="fl">
+            <img src="//static.zhihu.com/static/img/logo_black_trans.png" srcset="//static.zhihu.com/static/img/logo_black_trans@2x.png 2x" alt="知乎">
+          </a>
+          <strong class="mute">一个真实的问答社区</strong>
+        </div>
+        <div class="content">
+          <p class="single">服务器提了一个问题，我们正在紧张地撰写答案…</p>
+        </div>
+      </div>
+    </div>
+    <script src="//zhstatic.zhihu.com/assets/zap/2.1.14/zap.js"></script>
+    <script src="//static.zhihu.com/static/js/desktop/500.js"></script>
+  </body>
+</html>
